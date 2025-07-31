@@ -10,6 +10,7 @@
 <body>
     <div class="container">
         <?php if (isset($_SESSION['user_id']) && isset($_SESSION['username'])): ?>
+        <!-- Logged in navbar -->
         <div class="navbar">
             Welcome, <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong> | 
             <a href="dashboard.php">Dashboard</a> | 
@@ -17,5 +18,15 @@
             <a href="changelog.php">Changelog</a> | 
             <a href="https://wm.inboxia.org/" target="_blank">Webmail</a> | 
             <a href="logout.php">Logout</a>
+        </div>
+        <?php else: ?>
+        <!-- Not logged in navbar -->
+        <div class="nav-links">
+            <a href="index.php">Home</a> | 
+            <a href="register.php">Register</a> | 
+            <a href="login.php">Login</a> | 
+            <a href="donate.php">Support</a> | 
+            <a href="changelog.php">Changelog</a> | 
+            <a href="mail/">Webmail</a>
         </div>
         <?php endif; ?>

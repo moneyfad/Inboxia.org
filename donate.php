@@ -6,11 +6,8 @@ include 'header.php';
 
 <h1>Support Inboxia Mail</h1>
 
-<p><a href="index.php">← Back to Home</a></p>
-
 <div class="donate-info">
     <h2>Help Keep Inboxia Mail Running</h2>
-    <p><strong>Last Updated:</strong> July 31, 2025</p>
     <p>Your donations help us maintain our servers, improve security, and add new features. Any contribution helps keep Inboxia Mail running smoothly and free for everyone.</p>
     <p><strong>Why Crypto Only?</strong> Cryptocurrency payments are fast, secure, and help us maintain privacy while keeping operational costs low.</p>
 </div>

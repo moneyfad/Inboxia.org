@@ -6,12 +6,6 @@ include 'header.php';
 
 <h1>Version Changelog</h1>
 
-<p><a href="index.php">← Back to Home</a></p>
-
-<div class="changelog-meta">
-    <p><strong>Last Updated:</strong> July 31, 2025</p>
-</div>
-
 <div class="changelog">
     <div class="version">
         <h2>Version 2.1.0 - July 31, 2025</h2>
@@ -20,9 +14,9 @@ include 'header.php';
             <ul>
                 <li>Added donation page with crypto payment support</li>
                 <li>Version changelog system</li>
-                <li>Last updated timestamps on all pages</li>
-                <li>Enhanced navigation between pages</li>
-                <li>Created header and footer includes</li>
+                <li>Consistent header and footer across all pages</li>
+                <li>Unified navigation system</li>
+                <li>Created modular header/footer includes</li>
             </ul>
             
             <h3>Payment Methods</h3>
@@ -34,10 +28,10 @@ include 'header.php';
             
             <h3>Interface Improvements</h3>
             <ul>
-                <li>Cleaner page headers</li>
-                <li>Improved navigation links</li>
+                <li>Standardized navigation across all pages</li>
+                <li>Cleaner page structure</li>
                 <li>Better organized content</li>
-                <li>Modular header/footer system</li>
+                <li>Consistent user experience</li>
             </ul>
         </div>
     </div>

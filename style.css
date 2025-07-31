@@ -223,34 +223,25 @@ th {
 }
 
 /* New styles for version 2.1.0 */
-.quick-links {
-    text-align: center;
-    margin: 20px 0;
-    padding: 15px;
-    background-color: #F0F8FF;
-    border: 1px solid #4682B4;
-}
-
-.quick-links a {
-    margin: 0 5px;
-    padding: 5px 10px;
-    display: inline-block;
-    vertical-align: middle;
-}
-
 .nav-links {
-    text-align: center;
-    margin: 15px 0;
-    padding: 10px;
     background-color: #F5F5F5;
     border: 1px solid #CCCCCC;
+    padding: 10px;
+    margin: -20px -20px 20px -20px;
+    text-align: left;
 }
 
 .nav-links a {
-    margin: 0 5px;
-    padding: 5px 10px;
+    color: #000000;
+    margin-right: 15px;
+    padding: 5px 8px;
     display: inline-block;
     vertical-align: middle;
+    text-decoration: underline;
+}
+
+.nav-links a:hover {
+    color: #0000FF;
 }
 
 .footer-info {

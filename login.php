@@ -41,12 +41,6 @@ include 'header.php';
 
 <h1>Login</h1>
 
-<div class="nav-links">
-    <a href="index.php">← Home</a> | 
-    <a href="donate.php">Support</a> | 
-    <a href="changelog.php">Changelog</a>
-</div>
-
 <?php if ($error): ?>
     <div class="error"><?php echo htmlspecialchars($error); ?></div>
 <?php endif; ?>
