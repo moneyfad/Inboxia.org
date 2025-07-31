@@ -120,7 +120,7 @@ $emails = $stmt->fetchAll();
             Welcome, <?php echo htmlspecialchars($username); ?> | 
             <a href="dashboard.php">Dashboard</a> | 
             <a href="settings.php">Settings</a> | 
-            <a href="/mail/" target="_blank">Webmail</a> | 
+            <a href="https://wm.inboxia.org/" target="_blank">Webmail</a> | 
             <a href="logout.php">Logout</a>
         </div>
         

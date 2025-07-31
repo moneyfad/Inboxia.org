@@ -66,7 +66,7 @@ foreach ($emails as $email) {
             Welcome, <?php echo htmlspecialchars($username); ?> | 
             <a href="dashboard.php">Dashboard</a> | 
             <a href="settings.php">Settings</a> | 
-            <a href="/mail/" target="_blank">Webmail</a> | 
+            <a href="https://wm.inboxia.org/" target="_blank">Webmail</a> | 
             <a href="logout.php">Logout</a>
         </div>
         
@@ -109,7 +109,7 @@ foreach ($emails as $email) {
                             <a href="?toggle=<?php echo $email['id']; ?>">
                                 <?php echo $email['is_active'] ? 'Disable' : 'Enable'; ?>
                             </a> | 
-                            <a href="/mail/" target="_blank">Webmail</a>
+                            <a href="https://wm.inboxia.org/" target="_blank">Webmail</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -119,7 +119,7 @@ foreach ($emails as $email) {
         <h2>Email Configuration</h2>
         <div class="email-item">
             <p><strong>Webmail Access:</strong></p>
-            <p><a href="/mail/" target="_blank">https://inboxia.org/mail/</a><br>
+            <p><a href="https://wm.inboxia.org/" target="_blank">https://wm.inboxia.org/</a><br>
             Login with your full email address and password</p>
         </div>
         
