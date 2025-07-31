@@ -109,6 +109,7 @@ $email_count = $stmt->fetch()['count'];
         <div class="navbar">
             Welcome, <?php echo htmlspecialchars($username); ?> | 
             <a href="dashboard.php">Dashboard</a> | 
+            <a href="settings.php">Settings</a> | 
             <a href="/mail/" target="_blank">Webmail</a> | 
             <a href="logout.php">Logout</a>
         </div>

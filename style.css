@@ -166,3 +166,54 @@ th {
 .info li {
     margin: 5px 0;
 }
+
+.settings-section {
+    background-color: #F5F5F5;
+    border: 1px solid #CCCCCC;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.danger-section {
+    background-color: #FFEEEE;
+    border: 2px solid #CC0000;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.warning {
+    background-color: #FFF3CD;
+    border: 2px solid #FF6600;
+    color: #856404;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.warning ul {
+    margin: 10px 0 10px 20px;
+}
+
+.warning li {
+    margin: 5px 0;
+    font-weight: normal;
+}
+
+.danger-button {
+    background-color: #DC3545;
+    color: #FFFFFF;
+    border: 2px outset #CC0000;
+    padding: 8px 16px;
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.danger-button:hover {
+    background-color: #CC0000;
+}
+
+.danger-button:active {
+    border: 2px inset #CC0000;
+}
