@@ -81,7 +81,7 @@ foreach ($emails as $email) {
         <?php endif; ?>
         
         <div style="margin-bottom: 20px;">
-            <a href="add-email.php" class="button" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px;">+ Add New Email Account</a>
+            <a href="add-email.php" class="button">+ Add New Email Account</a>
         </div>
         
         <h2>Your Email Addresses</h2>
