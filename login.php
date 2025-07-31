@@ -1,6 +1,5 @@
 <?php
 require_once 'config.php';
-$last_updated = "January 31, 2025"; // Fixed date
 
 $error = '';
 
@@ -35,50 +34,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+
+$page_title = "Login - Inboxia Mail";
+include 'header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Inboxia Mail</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Login</h1>
-        
-        <div class="nav-links">
-            <a href="index.php">← Home</a> | 
-            <a href="donate.php">Support</a> | 
-            <a href="changelog.php">Changelog</a>
-        </div>
-        
-        <?php if ($error): ?>
-            <div class="error"><?php echo htmlspecialchars($error); ?></div>
-        <?php endif; ?>
-        
-        <form method="POST" action="">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required value="<?php echo htmlspecialchars($_POST['username'] ?? ''); ?>">
-            </div>
-            
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            
-            <div class="form-group">
-                <input type="submit" value="Login">
-            </div>
-        </form>
-        
-        <p>Don't have an account? <a href="register.php">Register here</a></p>
-        
-        <div class="footer-info">
-            <p><small>Last updated: <?php echo $last_updated; ?> | Version 2.1.0</small></p>
-        </div>
+
+<h1>Login</h1>
+
+<div class="nav-links">
+    <a href="index.php">← Home</a> | 
+    <a href="donate.php">Support</a> | 
+    <a href="changelog.php">Changelog</a>
+</div>
+
+<?php if ($error): ?>
+    <div class="error"><?php echo htmlspecialchars($error); ?></div>
+<?php endif; ?>
+
+<form method="POST" action="">
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required value="<?php echo htmlspecialchars($_POST['username'] ?? ''); ?>">
     </div>
-</body>
-</html>
+    
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    
+    <div class="form-group">
+        <input type="submit" value="Login">
+    </div>
+</form>
+
+<p>Don't have an account? <a href="register.php">Register here</a></p>
+
+<?php include 'footer.php'; ?>

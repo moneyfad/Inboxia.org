@@ -1,7 +1,6 @@
 <?php
 require_once 'config.php';
 require_once 'mailcow-api.php';
-$last_updated = "January 31, 2025"; // Fixed date
 
 $error = '';
 $success = '';
@@ -95,79 +94,68 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+
+$page_title = "Register - Inboxia Mail";
+$extra_head = '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>';
+include 'header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - Inboxia Mail</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-</head>
-<body>
-    <div class="container">
-        <h1>Register New Account</h1>
-        
-        <div class="nav-links">
-            <a href="index.php">← Home</a> | 
-            <a href="donate.php">Support</a> | 
-            <a href="changelog.php">Changelog</a>
-        </div>
-        
-        <?php if ($error): ?>
-            <div class="error"><?php echo htmlspecialchars($error); ?></div>
-        <?php endif; ?>
-        
-        <?php if ($success): ?>
-            <div class="success"><?php echo htmlspecialchars($success); ?></div>
-            <p><a href="login.php">Login now</a></p>
-        <?php else: ?>
-        
-        <form method="POST" action="">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required maxlength="50" value="<?php echo htmlspecialchars($_POST['username'] ?? ''); ?>">
-            </div>
-            
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required minlength="8" maxlength="32">
-                <small>Must be 8-32 characters</small>
-            </div>
-            
-            <div class="form-group">
-                <label for="confirm_password">Confirm Password:</label>
-                <input type="password" id="confirm_password" name="confirm_password" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email_prefix">Email Address:</label>
-                <input type="text" id="email_prefix" name="email_prefix" required maxlength="50" value="<?php echo htmlspecialchars($_POST['email_prefix'] ?? ''); ?>">
-                @inboxia.org
-                <input type="hidden" name="domain" value="inboxia.org">
-            </div>
-            
-            <div class="form-group">
-                <label for="recovery_email">Recovery Email:</label>
-                <input type="email" id="recovery_email" name="recovery_email" required maxlength="100" value="<?php echo htmlspecialchars($_POST['recovery_email'] ?? ''); ?>">
-                <small>Used for password recovery</small>
-            </div>
-            
-            <div class="form-group">
-                <div class="cf-turnstile" data-sitekey="<?php echo TURNSTILE_SITE_KEY; ?>"></div>
-            </div>
-            
-            <div class="form-group">
-                <input type="submit" value="Register">
-            </div>
-        </form>
-        
-        <?php endif; ?>
-        
-        <div class="footer-info">
-            <p><small>Last updated: <?php echo $last_updated; ?> | Version 2.1.0</small></p>
-        </div>
+
+<h1>Register New Account</h1>
+
+<div class="nav-links">
+    <a href="index.php">← Home</a> | 
+    <a href="donate.php">Support</a> | 
+    <a href="changelog.php">Changelog</a>
+</div>
+
+<?php if ($error): ?>
+    <div class="error"><?php echo htmlspecialchars($error); ?></div>
+<?php endif; ?>
+
+<?php if ($success): ?>
+    <div class="success"><?php echo htmlspecialchars($success); ?></div>
+    <p><a href="login.php">Login now</a></p>
+<?php else: ?>
+
+<form method="POST" action="">
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required maxlength="50" value="<?php echo htmlspecialchars($_POST['username'] ?? ''); ?>">
     </div>
-</body>
-</html>
+    
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required minlength="8" maxlength="32">
+        <small>Must be 8-32 characters</small>
+    </div>
+    
+    <div class="form-group">
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="email_prefix">Email Address:</label>
+        <input type="text" id="email_prefix" name="email_prefix" required maxlength="50" value="<?php echo htmlspecialchars($_POST['email_prefix'] ?? ''); ?>">
+        @inboxia.org
+        <input type="hidden" name="domain" value="inboxia.org">
+    </div>
+    
+    <div class="form-group">
+        <label for="recovery_email">Recovery Email:</label>
+        <input type="email" id="recovery_email" name="recovery_email" required maxlength="100" value="<?php echo htmlspecialchars($_POST['recovery_email'] ?? ''); ?>">
+        <small>Used for password recovery</small>
+    </div>
+    
+    <div class="form-group">
+        <div class="cf-turnstile" data-sitekey="<?php echo TURNSTILE_SITE_KEY; ?>"></div>
+    </div>
+    
+    <div class="form-group">
+        <input type="submit" value="Register">
+    </div>
+</form>
+
+<?php endif; ?>
+
+<?php include 'footer.php'; ?>
