@@ -1,0 +1,53 @@
+INBOXIA MAIL SERVICE SETUP INSTRUCTIONS
+======================================
+
+1. DATABASE SETUP
+-----------------
+Run the setup.php script in your browser:
+http://yourdomain/setup.php
+
+After successful setup, delete setup.php for security.
+
+2. MAILCOW API CONFIGURATION
+----------------------------
+Edit config.php and replace 'YOUR_MAILCOW_API_KEY' with your actual Mailcow API key.
+
+To get your Mailcow API key:
+1. Login to your Mailcow admin panel
+2. Go to System -> Configuration -> API
+3. Create a new API key with read/write permissions
+4. Copy the key and paste it in config.php
+
+3. SQUIRRELMAIL CONFIGURATION
+-----------------------------
+SquirrelMail is already configured and accessible at:
+http://yourdomain/mail/
+
+Users can login with their full email address and password.
+
+4. FILE PERMISSIONS
+-------------------
+Ensure the following directories are writable by the web server:
+- mail/data/
+- mail/attach/
+
+5. SECURITY
+-----------
+- Delete setup.php after initial setup
+- Ensure .htaccess is working to protect config files
+- Use HTTPS for production deployment
+- Update the Turnstile keys with your own from Cloudflare
+
+6. USAGE
+--------
+- Users register at http://yourdomain/register.php
+- Email addresses are created in format: username@inboxia.org
+- Users can access webmail at http://yourdomain/mail/
+- IMAP/SMTP settings are shown in the dashboard
+
+MAIL SERVER SETTINGS
+--------------------
+IMAP: mail.inboxia.org:993 (SSL/TLS)
+SMTP: mail.inboxia.org:587 (STARTTLS)
+POP3: mail.inboxia.org:995 (SSL/TLS)
+Webmail: http://yourdomain/mail/
