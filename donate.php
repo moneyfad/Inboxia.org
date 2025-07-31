@@ -19,20 +19,20 @@ include 'header.php';
     <div class="crypto-addresses">
         <h3>Bitcoin (BTC)</h3>
         <div class="wallet-address">
-            bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh
-            <button class="copy-btn" onclick="copyAddress('bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh')">Copy</button>
+            19Vu1cwrSUF6gQFvVBgJsWdW5RngY5qAbX
+            <button class="copy-btn" onclick="copyAddress('19Vu1cwrSUF6gQFvVBgJsWdW5RngY5qAbX')">Copy</button>
         </div>
         
         <h3>Ethereum (ETH)</h3>
         <div class="wallet-address">
-            0x742d35Cc6634C0532925a3b8D322C9F2A9c5D4AF
-            <button class="copy-btn" onclick="copyAddress('0x742d35Cc6634C0532925a3b8D322C9F2A9c5D4AF')">Copy</button>
+            0xd4f2a3ae16d5cb588f3f9e060aba0c910fbe5d8a
+            <button class="copy-btn" onclick="copyAddress('0xd4f2a3ae16d5cb588f3f9e060aba0c910fbe5d8a')">Copy</button>
         </div>
         
         <h3>Litecoin (LTC)</h3>
         <div class="wallet-address">
-            LTC1qw508d6qejxtdg4y5r3zarvary0c5xw7kxpjzsx
-            <button class="copy-btn" onclick="copyAddress('LTC1qw508d6qejxtdg4y5r3zarvary0c5xw7kxpjzsx')">Copy</button>
+            LdmtWdwNexKs1x3n51UWR6J3ZivKaUJGRV
+            <button class="copy-btn" onclick="copyAddress('LdmtWdwNexKs1x3n51UWR6J3ZivKaUJGRV')">Copy</button>
         </div>
     </div>
 </div>
