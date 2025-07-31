@@ -12,9 +12,9 @@ $last_updated = date("F j, Y", filemtime(__FILE__));
 </head>
 <body>
     <div class="container">
-        <h1>📧 Inboxia Mail Service</h1>
+        <h1>Inboxia Mail Service</h1>
         
-        <p>Welcome to Inboxia - Free anonymous email service with crypto-powered upgrades</p>
+        <p>Welcome to Inboxia - Free anonymous email service</p>
         
         <p>Create your own email address @inboxia.org</p>
         
@@ -24,22 +24,22 @@ $last_updated = date("F j, Y", filemtime(__FILE__));
         </div>
         
         <div class="quick-links">
-            <a href="donate.php">💳 Support & Upgrade</a> | 
-            <a href="changelog.php">📋 Changelog</a> | 
-            <a href="mail/">📧 Webmail</a>
+            <a href="donate.php">Support Us</a> | 
+            <a href="changelog.php">Changelog</a> | 
+            <a href="mail/">Webmail</a>
         </div>
         
         <hr>
         
         <div class="features">
-            <h2>✨ Features:</h2>
+            <h2>Features:</h2>
             <ul>
-                <li>🔒 Anonymous email accounts</li>
-                <li>🌐 Multiple domain choices</li>
-                <li>🎨 Simple web interface</li>
-                <li>⚡ Fast and reliable</li>
-                <li>💎 Crypto-powered storage upgrades</li>
-                <li>🛡️ Enhanced security features</li>
+                <li>Anonymous email accounts</li>
+                <li>Multiple domain choices</li>
+                <li>Simple web interface</li>
+                <li>Fast and reliable</li>
+                <li>Enhanced security features</li>
+                <li>No JavaScript required (except for captcha)</li>
             </ul>
         </div>
         

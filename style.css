@@ -258,16 +258,6 @@ th {
 
 .features li {
     margin: 8px 0;
-    list-style-type: none;
-}
-
-.plan-status {
-    background-color: #E6F3FF;
-    border: 2px solid #007cba;
-    padding: 15px;
-    margin: 15px 0;
-    text-align: center;
-    border-radius: 5px;
 }
 
 .actions {
@@ -282,6 +272,60 @@ th {
 
 .button.secondary:hover {
     background-color: #AAAAAA;
+}
+
+/* Donation page styles */
+.donate-info {
+    background-color: #F0F8FF;
+    border: 1px solid #4682B4;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.donation-section {
+    background-color: #FFFFFF;
+    border: 2px solid #000000;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.crypto-addresses {
+    margin: 20px 0;
+}
+
+.crypto-addresses h3 {
+    color: #000080;
+    border-bottom: 1px solid #CCCCCC;
+    padding-bottom: 5px;
+    margin: 20px 0 10px 0;
+}
+
+.wallet-address {
+    font-family: "Courier New", Courier, monospace;
+    background-color: #F8F8F8;
+    border: 1px solid #CCCCCC;
+    padding: 10px;
+    margin: 10px 0;
+    word-break: break-all;
+    font-size: 12px;
+}
+
+.copy-btn {
+    background-color: #CCCCCC;
+    border: 2px outset #DDDDDD;
+    padding: 4px 8px;
+    font-family: "Arial", sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.copy-btn:hover {
+    background-color: #DDDDDD;
+}
+
+.copy-btn:active {
+    border: 2px inset #DDDDDD;
 }
 
 /* Changelog specific styles */

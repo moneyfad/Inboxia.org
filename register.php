@@ -107,12 +107,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container">
-        <h1>📝 Register New Account</h1>
+        <h1>Register New Account</h1>
         
         <div class="nav-links">
             <a href="index.php">← Home</a> | 
-            <a href="donate.php">💳 Support</a> | 
-            <a href="changelog.php">📋 Changelog</a>
+            <a href="donate.php">Support</a> | 
+            <a href="changelog.php">Changelog</a>
         </div>
         
         <?php if ($error): ?>

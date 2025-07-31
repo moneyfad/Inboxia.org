@@ -65,18 +65,14 @@ foreach ($emails as $email) {
     <div class="container">
         <div class="navbar">
             Welcome, <strong><?php echo htmlspecialchars($username); ?></strong> | 
-            <a href="dashboard.php">🏠 Dashboard</a> | 
-            <a href="donate.php">💳 Upgrade</a> | 
-            <a href="changelog.php">📋 Changelog</a> | 
-            <a href="https://wm.inboxia.org/" target="_blank">📧 Webmail</a> | 
-            <a href="logout.php">🚪 Logout</a>
+            <a href="dashboard.php">Dashboard</a> | 
+            <a href="donate.php">Support</a> | 
+            <a href="changelog.php">Changelog</a> | 
+            <a href="https://wm.inboxia.org/" target="_blank">Webmail</a> | 
+            <a href="logout.php">Logout</a>
         </div>
         
-        <h1>📧 Email Dashboard</h1>
-        
-        <div class="plan-status">
-            <p><strong>💾 Current Plan:</strong> Free (1GB Storage) | <a href="donate.php">Upgrade for More Space →</a></p>
-        </div>
+        <h1>Email Dashboard</h1>
         
         <?php if ($error): ?>
             <div class="error"><?php echo htmlspecialchars($error); ?></div>
