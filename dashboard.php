@@ -1,6 +1,7 @@
 <?php
 require_once 'config.php';
 require_once 'mailcow-api.php';
+$last_updated = date("F j, Y", filemtime(__FILE__));
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
@@ -63,14 +64,19 @@ foreach ($emails as $email) {
 <body>
     <div class="container">
         <div class="navbar">
-            Welcome, <?php echo htmlspecialchars($username); ?> | 
-            <a href="dashboard.php">Dashboard</a> | 
-            <a href="settings.php">Settings</a> | 
-            <a href="https://wm.inboxia.org/" target="_blank">Webmail</a> | 
-            <a href="logout.php">Logout</a>
+            Welcome, <strong><?php echo htmlspecialchars($username); ?></strong> | 
+            <a href="dashboard.php">🏠 Dashboard</a> | 
+            <a href="donate.php">💳 Upgrade</a> | 
+            <a href="changelog.php">📋 Changelog</a> | 
+            <a href="https://wm.inboxia.org/" target="_blank">📧 Webmail</a> | 
+            <a href="logout.php">🚪 Logout</a>
         </div>
         
-        <h1>Email Dashboard</h1>
+        <h1>📧 Email Dashboard</h1>
+        
+        <div class="plan-status">
+            <p><strong>💾 Current Plan:</strong> Free (1GB Storage) | <a href="donate.php">Upgrade for More Space →</a></p>
+        </div>
         
         <?php if ($error): ?>
             <div class="error"><?php echo htmlspecialchars($error); ?></div>
@@ -146,6 +152,10 @@ foreach ($emails as $email) {
             Port: 995 (SSL/TLS)<br>
             Username: Your full email address<br>
             Password: Your account password</p>
+        </div>
+        
+        <div class="footer-info">
+            <p><small>Last updated: <?php echo $last_updated; ?> | Version 2.1.0 | <a href="donate.php">Support Inboxia</a></small></p>
         </div>
     </div>
 </body>

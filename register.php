@@ -1,6 +1,7 @@
 <?php
 require_once 'config.php';
 require_once 'mailcow-api.php';
+$last_updated = date("F j, Y", filemtime(__FILE__));
 
 $error = '';
 $success = '';
@@ -106,9 +107,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container">
-        <h1>Register New Account</h1>
+        <h1>📝 Register New Account</h1>
         
-        <p><a href="index.php">Back to Home</a></p>
+        <div class="nav-links">
+            <a href="index.php">← Home</a> | 
+            <a href="donate.php">💳 Support</a> | 
+            <a href="changelog.php">📋 Changelog</a>
+        </div>
         
         <?php if ($error): ?>
             <div class="error"><?php echo htmlspecialchars($error); ?></div>
@@ -159,6 +164,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
         
         <?php endif; ?>
+        
+        <div class="footer-info">
+            <p><small>Last updated: <?php echo $last_updated; ?> | Version 2.1.0</small></p>
+        </div>
     </div>
 </body>
 </html>
