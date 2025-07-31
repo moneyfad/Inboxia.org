@@ -1,7 +1,7 @@
 <?php
 require_once 'config.php';
 require_once 'mailcow-api.php';
-$last_updated = date("F j, Y", filemtime(__FILE__));
+$last_updated = "January 31, 2025"; // Fixed date
 
 $error = '';
 $success = '';

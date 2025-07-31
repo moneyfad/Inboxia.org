@@ -1,6 +1,6 @@
 <?php
 require_once 'config.php';
-$last_updated = date("F j, Y", filemtime(__FILE__));
+$last_updated = "January 31, 2025"; // Fixed date
 
 $error = '';
 

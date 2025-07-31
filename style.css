@@ -109,11 +109,15 @@ th {
     color: #FFFFFF;
     padding: 10px;
     margin: -20px -20px 20px -20px;
+    text-align: left;
 }
 
 .navbar a {
     color: #FFFFFF;
-    margin-right: 20px;
+    margin-right: 15px;
+    padding: 5px 8px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .navbar a:hover {
@@ -227,12 +231,26 @@ th {
     border: 1px solid #4682B4;
 }
 
+.quick-links a {
+    margin: 0 5px;
+    padding: 5px 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .nav-links {
     text-align: center;
     margin: 15px 0;
     padding: 10px;
     background-color: #F5F5F5;
     border: 1px solid #CCCCCC;
+}
+
+.nav-links a {
+    margin: 0 5px;
+    padding: 5px 10px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .footer-info {
