@@ -13,36 +13,7 @@ $username = $_SESSION['username'];
 $message = '';
 $error = '';
 
-// Handle creating new email address
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'create_email') {
-    $email_prefix = trim($_POST['email_prefix'] ?? '');
-    $domain = $_POST['domain'] ?? '';
-    
-    if (empty($email_prefix) || empty($domain)) {
-        $error = 'Email prefix and domain are required';
-    } elseif (!in_array($domain, $available_domains)) {
-        $error = 'Invalid domain selected';
-    } elseif (!preg_match('/^[a-zA-Z0-9_.-]+$/', $email_prefix)) {
-        $error = 'Email prefix can only contain letters, numbers, underscore, dot and hyphen';
-    } else {
-        $email = $email_prefix . '@' . $domain;
-        
-        // Check if email exists
-        $stmt = $pdo->prepare('SELECT id FROM email_accounts WHERE email_address = ?');
-        $stmt->execute([$email]);
-        if ($stmt->fetch()) {
-            $error = 'Email address already exists';
-        } else {
-            // Get user's password for mailcow (we'll need to store it or ask for it)
-            // For now, we'll use a temporary approach - in production, handle this differently
-            $error = 'Please use the registration form to create your first email address.';
-            // In a real implementation, you'd either:
-            // 1. Store the password encrypted in the database
-            // 2. Ask the user to enter their password again
-            // 3. Use a different authentication method
-        }
-    }
-}
+// Removed - email creation is now handled in add-email.php with captcha verification
 
 // Handle toggling email status
 if (isset($_GET['toggle']) && is_numeric($_GET['toggle'])) {
@@ -108,16 +79,13 @@ foreach ($emails as $email) {
             <div class="success"><?php echo htmlspecialchars($message); ?></div>
         <?php endif; ?>
         
-        <?php if (count($emails) == 0): ?>
-            <div class="error">
-                <p>To create your first email address, please use the registration process.</p>
-                <p>Additional email addresses can be created after setting up your primary account.</p>
-            </div>
-        <?php endif; ?>
+        <div style="margin-bottom: 20px;">
+            <a href="add-email.php" class="button" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px;">+ Add New Email Account</a>
+        </div>
         
         <h2>Your Email Addresses</h2>
         <?php if (empty($emails)): ?>
-            <p>You don't have any email addresses yet.</p>
+            <p>You don't have any email addresses yet. <a href="add-email.php">Create your first email account</a>.</p>
         <?php else: ?>
             <table>
                 <tr>
