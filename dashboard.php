@@ -83,11 +83,13 @@ include 'header.php';
     <div class="success"><?php echo htmlspecialchars($message); ?></div>
 <?php endif; ?>
 
-
+<div style="margin-bottom: 20px;">
+    <a href="add-email.php" class="button">+ Add New Email Account</a>
+</div>
 
 <h2>Your Email Addresses</h2>
 <?php if (empty($emails)): ?>
-    <p>Your email account was created during registration and is ready to use.</p>
+    <p>You don't have any email addresses yet. <a href="add-email.php">Create your first email account</a>.</p>
 <?php else: ?>
     <table>
         <tr>

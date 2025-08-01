@@ -14,6 +14,9 @@
         <div class="navbar">
             Welcome, <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong> | 
             <a href="dashboard.php">Dashboard</a> | 
+            <?php if (isset($_SESSION['username']) && $_SESSION['username'] === 'admin'): ?>
+                <a href="admin.php">Admin Panel</a> | 
+            <?php endif; ?>
             <a href="donate.php">Support</a> | 
             <a href="changelog.php">Changelog</a> | 
             <a href="https://wm.inboxia.org/" target="_blank">Webmail</a> | 
@@ -27,6 +30,6 @@
             <a href="login.php">Login</a> | 
             <a href="donate.php">Support</a> | 
             <a href="changelog.php">Changelog</a> | 
-            <a href="https://wm.inboxia.org/" target="_blank">Webmail</a>
+            <a href="mail/">Webmail</a>
         </div>
         <?php endif; ?>

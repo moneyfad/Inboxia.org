@@ -66,5 +66,6 @@ include 'header.php';
 </form>
 
 <p>Don't have an account? <a href="register.php">Register here</a></p>
+<p>Forgot your password? <a href="reset_password.php">Reset it here</a></p>
 
 <?php include 'footer.php'; ?>

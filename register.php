@@ -80,7 +80,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         if (!$mailcowResult['success']) {
                             // Rollback if mailcow creation fails
                             $pdo->rollBack();
-                            $error = 'Failed to create mailbox: ' . $mailcowResult['error'];
+                            
+                            // Handle error properly - convert to string if needed
+                            $errorMsg = isset($mailcowResult['error']) ? $mailcowResult['error'] : 'Unknown error';
+                            if (is_array($errorMsg) || is_object($errorMsg)) {
+                                $errorMsg = json_encode($errorMsg);
+                            }
+                            $error = 'Failed to create mailbox: ' . $errorMsg;
                         } else {
                             $pdo->commit();
                             $success = 'Account created successfully! You can now login.';

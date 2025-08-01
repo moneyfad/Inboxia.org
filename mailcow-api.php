@@ -35,12 +35,36 @@ function createMailcowMailbox($email, $password, $name = '') {
     
     $result = json_decode($response, true);
     
+    // Debug logging
+    error_log("Mailcow Debug - HTTP Code: $httpCode");
+    error_log("Mailcow Debug - Result: " . json_encode($result));
+    error_log("Mailcow Debug - Result[0] type: " . (isset($result[0]['type']) ? $result[0]['type'] : 'NOT SET'));
+    
     if ($httpCode == 200 && isset($result[0]['type']) && $result[0]['type'] == 'success') {
+        error_log("Mailcow Debug - Returning success");
         return ['success' => true];
     } else {
+        error_log("Mailcow Debug - Returning error");
+        // Better error handling
+        $error_msg = 'Failed to create mailbox';
+        
+        if (is_array($result)) {
+            if (isset($result[0]['msg'])) {
+                $msg = $result[0]['msg'];
+                $error_msg = is_array($msg) ? json_encode($msg) : $msg;
+            } elseif (isset($result['msg'])) {
+                $msg = $result['msg'];
+                $error_msg = is_array($msg) ? json_encode($msg) : $msg;
+            } else {
+                $error_msg = 'Mailcow API error: ' . json_encode($result);
+            }
+        } else {
+            $error_msg = 'HTTP ' . $httpCode . ': ' . ($response ?: 'No response from Mailcow API');
+        }
+        
         return [
             'success' => false,
-            'error' => isset($result[0]['msg']) ? $result[0]['msg'] : 'Failed to create mailbox'
+            'error' => $error_msg
         ];
     }
 }
