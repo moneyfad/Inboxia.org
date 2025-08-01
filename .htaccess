@@ -2,7 +2,7 @@
 Options -Indexes
 
 # Protect sensitive files
-<FilesMatch "^(config\.php|database\.sql|\.htaccess)$">
+<FilesMatch "^(config\.php|database\.sql|\.htaccess|database-update\.php|mailcow-api\.php)$">
     Order allow,deny
     Deny from all
 </FilesMatch>
@@ -14,3 +14,10 @@ php_value error_log errors.log
 
 # Set default charset
 AddDefaultCharset UTF-8
+
+# Basic security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>

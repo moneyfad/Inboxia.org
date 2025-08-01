@@ -130,9 +130,18 @@ include 'header.php';
     
     <div class="form-group">
         <label for="email_prefix">Email Address:</label>
-        <input type="text" id="email_prefix" name="email_prefix" required maxlength="50" value="<?php echo htmlspecialchars($_POST['email_prefix'] ?? ''); ?>">
-        @inboxia.org
-        <input type="hidden" name="domain" value="inboxia.org">
+        <div class="email-input-group">
+            <input type="text" id="email_prefix" name="email_prefix" required maxlength="50" value="<?php echo htmlspecialchars($_POST['email_prefix'] ?? ''); ?>" class="email-prefix">
+            <span class="at-symbol">@</span>
+            <select name="domain" id="domain" required class="domain-select">
+                <?php foreach ($available_domains as $domain_option): ?>
+                    <option value="<?php echo htmlspecialchars($domain_option); ?>" <?php echo (isset($_POST['domain']) && $_POST['domain'] === $domain_option) ? 'selected' : ''; ?>>
+                        <?php echo htmlspecialchars($domain_option); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <small>More domains coming soon!</small>
     </div>
     
     <div class="form-group">

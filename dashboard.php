@@ -10,8 +10,20 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 $username = $_SESSION['username'];
-$message = '';
-$error = '';
+
+// Check if user is suspended
+$stmt = $pdo->prepare('SELECT is_suspended FROM users WHERE id = ?');
+$stmt->execute([$user_id]);
+$user = $stmt->fetch();
+
+if ($user && $user['is_suspended']) {
+    session_destroy();
+    header('Location: login.php?error=' . urlencode('Your account has been suspended'));
+    exit;
+}
+
+$message = $_GET['msg'] ?? '';
+$error = $_GET['err'] ?? '';
 
 // Handle toggling email status
 if (isset($_GET['toggle']) && is_numeric($_GET['toggle'])) {
@@ -24,16 +36,23 @@ if (isset($_GET['toggle']) && is_numeric($_GET['toggle'])) {
     
     if ($emailData) {
         $newStatus = !$emailData['is_active'];
+        $statusText = $newStatus ? 'enabled' : 'disabled';
         
         // Update in mailcow
-        if (updateMailcowMailbox($emailData['email_address'], $newStatus)) {
+        $mailcowResult = updateMailcowMailbox($emailData['email_address'], $newStatus);
+        if ($mailcowResult['success']) {
             // Update in database
             $stmt = $pdo->prepare('UPDATE email_accounts SET is_active = ? WHERE id = ? AND user_id = ?');
             $stmt->execute([$newStatus, $email_id, $user_id]);
+            $message = "Email account successfully {$statusText}.";
+        } else {
+            $error = "Failed to {$statusText} email account: " . ($mailcowResult['error'] ?? 'Unknown error');
         }
+    } else {
+        $error = 'Email account not found.';
     }
     
-    header('Location: dashboard.php');
+    header('Location: dashboard.php?msg=' . urlencode($message ?? '') . '&err=' . urlencode($error ?? ''));
     exit;
 }
 
@@ -64,13 +83,11 @@ include 'header.php';
     <div class="success"><?php echo htmlspecialchars($message); ?></div>
 <?php endif; ?>
 
-<div style="margin-bottom: 20px;">
-    <a href="add-email.php" class="button">+ Add New Email Account</a>
-</div>
+
 
 <h2>Your Email Addresses</h2>
 <?php if (empty($emails)): ?>
-    <p>You don't have any email addresses yet. <a href="add-email.php">Create your first email account</a>.</p>
+    <p>Your email account was created during registration and is ready to use.</p>
 <?php else: ?>
     <table>
         <tr>
@@ -85,8 +102,7 @@ include 'header.php';
                 <td><?php echo htmlspecialchars($email['email_address']); ?></td>
                 <td><?php echo $email['is_active'] ? 'Active' : 'Disabled'; ?></td>
                 <td>
-                    Total: <?php echo $email_stats[$email['id']]['total']; ?> 
-                    (Unread: <?php echo $email_stats[$email['id']]['unread'] ?: '0'; ?>)
+                    <a href="https://wm.inboxia.org/" target="_blank">Check Webmail</a>
                 </td>
                 <td><?php echo date('Y-m-d H:i', strtotime($email['created_at'])); ?></td>
                 <td>

@@ -101,4 +101,43 @@ function deleteMailcowMailbox($email) {
     
     return $httpCode == 200 && isset($result[0]['type']) && $result[0]['type'] == 'success';
 }
+
+/**
+ * Update mailbox password in Mailcow
+ */
+function updateMailcowPassword($email, $new_password) {
+    $data = [
+        'items' => [$email],
+        'attr' => [
+            'password' => $new_password,
+            'password2' => $new_password
+        ]
+    ];
+    
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, MAILCOW_API_URL . '/edit/mailbox');
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Content-Type: application/json',
+        'X-API-Key: ' . MAILCOW_API_KEY
+    ]);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Only for development
+    
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+    
+    $result = json_decode($response, true);
+    
+    if ($httpCode == 200 && isset($result[0]['type']) && $result[0]['type'] == 'success') {
+        return ['success' => true];
+    } else {
+        return [
+            'success' => false,
+            'error' => isset($result[0]['msg']) ? $result[0]['msg'] : 'Failed to update password'
+        ];
+    }
+}
 ?>

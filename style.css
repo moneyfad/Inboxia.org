@@ -45,6 +45,13 @@ select {
     font-family: "Courier New", Courier, monospace;
     font-size: 14px;
     background-color: #FFFFFF;
+    box-sizing: border-box;
+}
+
+/* Override for inputs inside email-input-group to avoid double borders */
+.email-input-group input[type="text"],
+.email-input-group select {
+    border: none;
 }
 
 input[type="submit"],
@@ -391,4 +398,291 @@ th {
     padding: 15px;
     margin: 20px 0;
     text-align: center;
+}
+
+/* Trustpilot Widget Styling */
+.trustpilot-widget {
+    margin: 30px 0;
+    border: 2px solid #00B67A;
+    padding: 20px;
+    background-color: #F8FFF8;
+    text-align: center;
+}
+
+/* Feature Request Form */
+.feature-request {
+    background-color: #EEEEEE;
+    border: 1px solid #CCCCCC;
+    padding: 20px;
+    margin: 30px 0;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+}
+
+.feature-request h3 {
+    margin-top: 0;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    border-bottom: 1px solid #CCCCCC;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.feature-request textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #000000;
+    padding: 8px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    resize: vertical;
+    background-color: #FFFFFF;
+}
+
+/* Email Input Group */
+.email-input-group {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid #000000;
+    background-color: #FFFFFF;
+    padding: 0;
+    height: 26px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+}
+
+.email-prefix {
+    flex: 1.2;
+    min-width: 0;
+    border: none;
+    padding: 4px 6px;
+    margin: 0;
+    background: transparent;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.email-prefix:focus {
+    outline: none;
+    border: none;
+    background: transparent;
+}
+
+.at-symbol {
+    font-weight: bold;
+    padding: 4px 4px;
+    background-color: #EEEEEE;
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    min-width: 16px;
+}
+
+.domain-select {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    padding: 4px 6px;
+    margin: 0;
+    background: transparent;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    height: 100%;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23000" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 6px center;
+    background-size: 8px;
+    padding-right: 20px;
+}
+
+.domain-select:focus {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+/* Ensure form consistency */
+.form-group .email-input-group {
+    margin-bottom: 5px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-group small {
+    color: #666666;
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Email input group hover and focus states */
+.email-input-group:focus-within {
+    border-color: #0000FF;
+    box-shadow: 0 0 2px rgba(0, 0, 255, 0.3);
+}
+
+.email-input-group:hover {
+    border-color: #333333;
+}
+
+/* Admin Panel Specific Styles */
+.admin-stats, .admin-actions, .recent-users, .recent-features {
+    background-color: #F5F5F5;
+    border: 1px solid #CCCCCC;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.admin-stats h2, .admin-actions h2, .recent-users h2, .recent-features h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #CCCCCC;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.admin-actions .button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 15px;
+        border-width: 1px;
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
+    
+    .navbar, .nav-links {
+        font-size: 12px;
+        line-height: 1.8;
+        text-align: center;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    select,
+    textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .button {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    .actions {
+        flex-direction: column;
+    }
+    
+    .actions a {
+        margin: 5px 0;
+    }
+    
+    table {
+        font-size: 12px;
+    }
+    
+    th, td {
+        padding: 5px;
+    }
+    
+    /* Fix for domain selection on mobile */
+    .email-input-group {
+        flex-wrap: nowrap;
+        height: 32px;
+        font-size: 14px;
+    }
+    
+    .email-prefix {
+        flex: 1.5;
+        font-size: 14px;
+        padding: 6px;
+    }
+    
+    .domain-select {
+        flex: 1.2;
+        font-size: 14px;
+        padding: 6px 20px 6px 6px;
+    }
+    
+    .at-symbol {
+        padding: 6px 3px;
+        font-size: 14px;
+        min-width: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+    
+    h1 {
+        font-size: 18px;
+    }
+    
+    h2 {
+        font-size: 16px;
+    }
+    
+    .container {
+        padding: 10px;
+    }
+    
+    .button, input[type="submit"] {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+    
+    /* Very small screen email input adjustments */
+    .email-input-group {
+        height: 36px;
+        font-size: 13px;
+    }
+    
+    .email-prefix {
+        padding: 8px 5px;
+        font-size: 13px;
+    }
+    
+    .domain-select {
+        padding: 8px 18px 8px 5px;
+        font-size: 13px;
+    }
+    
+    .at-symbol {
+        padding: 8px 2px;
+        font-size: 13px;
+        min-width: 16px;
+    }
 }

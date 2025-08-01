@@ -1,7 +1,7 @@
 <?php
 require_once 'config.php';
 
-$error = '';
+$error = $_GET['error'] ?? '';
 
 if (isset($_SESSION['user_id'])) {
     header('Location: dashboard.php');
@@ -15,20 +15,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($username) || empty($password)) {
         $error = 'Username and password are required';
     } else {
-        $stmt = $pdo->prepare('SELECT id, password FROM users WHERE username = ?');
+        $stmt = $pdo->prepare('SELECT id, password, is_suspended FROM users WHERE username = ?');
         $stmt->execute([$username]);
         $user = $stmt->fetch();
         
         if ($user && password_verify($password, $user['password'])) {
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $username;
-            
-            // Update last login
-            $stmt = $pdo->prepare('UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE id = ?');
-            $stmt->execute([$user['id']]);
-            
-            header('Location: dashboard.php');
-            exit;
+            if ($user['is_suspended']) {
+                $error = 'Your account has been suspended. Please contact support.';
+            } else {
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $username;
+                
+                // Update last login
+                $stmt = $pdo->prepare('UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE id = ?');
+                $stmt->execute([$user['id']]);
+                
+                header('Location: dashboard.php');
+                exit;
+            }
         } else {
             $error = 'Invalid username or password';
         }
