@@ -1,11 +1,7 @@
 <?php
 require_once 'config.php';
 $page_title = "Free Email Service";
-$extra_head = '
-<!-- TrustBox script -->
-<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
-<!-- End TrustBox script -->
-';
+$extra_head = '';
 include 'header.php';
 ?>
 
@@ -28,27 +24,16 @@ include 'header.php';
     <h2>What Our Users Say</h2>
     <p>Trusted by users worldwide for secure and reliable email services</p>
     
-    <!-- Trustpilot widget -->
-    <div class="trustpilot-widget" 
-         data-locale="en-US" 
-         data-template-id="5419b6a8b0d04a076446a9ad" 
-         data-businessunit-id="66ad4a25c9db4b0e9f07e8f1" 
-         data-style-height="24px" 
-         data-style-width="100%" 
-         data-theme="light">
-        <a href="https://www.trustpilot.com/review/inboxia.org" target="_blank" rel="noopener">
-            Trustpilot reviews
-        </a>
-    </div>
-    
     <p>
         <a href="https://www.trustpilot.com/review/inboxia.org" 
            target="_blank" 
            rel="noopener noreferrer" 
-           class="button secondary">
-            Read All Reviews
+           class="button">
+            ★★★★★ View Reviews on Trustpilot
         </a>
     </p>
+    
+    <p><small>Join thousands of satisfied users who trust Inboxia for their email needs</small></p>
 </div>
 
 <?php include 'footer.php'; ?>
