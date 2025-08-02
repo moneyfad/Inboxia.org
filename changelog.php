@@ -8,6 +8,44 @@ include 'header.php';
 
 <div class="changelog">
     <div class="version">
+        <h2>Version 2.2.0 - August 2, 2025</h2>
+        <div class="changes">
+            <h3>Bug Fixes</h3>
+            <ul>
+                <li>Fixed Mailcow API configuration - corrected API URL from wm.inboxia.org to mail.inboxia.org</li>
+                <li>Fixed "Failed to create mailbox: HTTP 200: Hello World" error during registration</li>
+                <li>Fixed 404 error when clicking "Add New Email Account" from dashboard</li>
+                <li>Resolved API endpoint routing issues</li>
+            </ul>
+            
+            <h3>New Features</h3>
+            <ul>
+                <li>Created add-email.php page for adding additional email accounts</li>
+                <li>Added ability for users to create multiple email addresses per account</li>
+                <li>Implemented proper form validation for additional email creation</li>
+                <li>Added email prefix and domain selection for new addresses</li>
+            </ul>
+            
+            <h3>Technical Improvements</h3>
+            <ul>
+                <li>Enhanced Mailcow API integration with proper error handling</li>
+                <li>Improved validation for email creation process</li>
+                <li>Added consistent styling to new pages</li>
+                <li>Better integration between dashboard and email management</li>
+                <li>Maintained security with proper authentication checks</li>
+            </ul>
+            
+            <h3>User Experience</h3>
+            <ul>
+                <li>Users can now add multiple email addresses from their dashboard</li>
+                <li>Clear error messages for failed operations</li>
+                <li>Seamless redirect back to dashboard after successful email creation</li>
+                <li>Consistent navigation and styling across all pages</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="version">
         <h2>Version 2.1.0 - July 31, 2025</h2>
         <div class="changes">
             <h3>New Features</h3>
