@@ -24,4 +24,31 @@ include 'header.php';
     <a href="login.php" class="button secondary">Login</a>
 </div>
 
+<div class="trustpilot-section">
+    <h2>What Our Users Say</h2>
+    <p>Trusted by users worldwide for secure and reliable email services</p>
+    
+    <!-- Trustpilot widget -->
+    <div class="trustpilot-widget" 
+         data-locale="en-US" 
+         data-template-id="5419b6a8b0d04a076446a9ad" 
+         data-businessunit-id="66ad4a25c9db4b0e9f07e8f1" 
+         data-style-height="24px" 
+         data-style-width="100%" 
+         data-theme="light">
+        <a href="https://www.trustpilot.com/review/inboxia.org" target="_blank" rel="noopener">
+            Trustpilot reviews
+        </a>
+    </div>
+    
+    <p>
+        <a href="https://www.trustpilot.com/review/inboxia.org" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="button secondary">
+            Read All Reviews
+        </a>
+    </p>
+</div>
+
 <?php include 'footer.php'; ?>
