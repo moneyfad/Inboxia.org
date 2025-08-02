@@ -685,6 +685,7 @@ th {
 @media (min-width: 1200px) {
     .container {
         max-width: 1200px;
+        margin: 0 auto;
         padding: 25px;
     }
     
@@ -708,6 +709,7 @@ th {
     
     .container {
         max-width: 100%;
+        margin: 0 auto;
         padding: 15px;
         border-width: 1px;
     }
@@ -805,6 +807,7 @@ th {
 @media (max-width: 900px) and (min-width: 769px) {
     .container {
         max-width: 850px;
+        margin: 0 auto;
         padding: 18px;
     }
     
@@ -820,6 +823,7 @@ th {
     }
     
     .container {
+        margin: 0 auto;
         padding: 10px;
         border-width: 1px;
     }
@@ -833,6 +837,7 @@ th {
     }
     
     .container {
+        margin: 0 auto;
         padding: 10px;
     }
     
