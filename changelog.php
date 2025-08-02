@@ -12,7 +12,7 @@ include 'header.php';
         <div class="changes">
             <h3>Bug Fixes</h3>
             <ul>
-                <li>Fixed Mailcow API configuration - corrected API URL from wm.inboxia.org to mail.inboxia.org</li>
+                <li>Fixed Mailcow API configuration - corrected API endpoint URL</li>
                 <li>Fixed "Failed to create mailbox: HTTP 200: Hello World" error during registration</li>
                 <li>Fixed 404 error when clicking "Add New Email Account" from dashboard</li>
                 <li>Resolved API endpoint routing issues</li>
