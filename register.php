@@ -15,13 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $turnstile_response = $_POST['cf-turnstile-response'] ?? '';
     
     // Validate inputs
-    if (empty($username) || empty($password) || empty($email_prefix) || empty($domain) || empty($recovery_email)) {
-        $error = 'All fields are required';
+    if (empty($username) || empty($password) || empty($email_prefix) || empty($domain)) {
+        $error = 'Username, password, and email address are required';
     } elseif ($password !== $confirm_password) {
         $error = 'Passwords do not match';
     } elseif (strlen($password) < 8 || strlen($password) > 32) {
         $error = 'Password must be between 8 and 32 characters';
-    } elseif (!filter_var($recovery_email, FILTER_VALIDATE_EMAIL)) {
+    } elseif (!empty($recovery_email) && !filter_var($recovery_email, FILTER_VALIDATE_EMAIL)) {
         $error = 'Invalid recovery email address';
     } elseif (!in_array($domain, $available_domains)) {
         $error = 'Invalid domain selected';
@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $pdo->beginTransaction();
                         
                         $stmt = $pdo->prepare('INSERT INTO users (username, password, recovery_email) VALUES (?, ?, ?)');
-                        $stmt->execute([$username, password_hash($password, PASSWORD_DEFAULT), $recovery_email]);
+                        $stmt->execute([$username, password_hash($password, PASSWORD_DEFAULT), $recovery_email ?: null]);
                         $user_id = $pdo->lastInsertId();
                         
                         // Create email account
@@ -151,9 +151,9 @@ include 'header.php';
     </div>
     
     <div class="form-group">
-        <label for="recovery_email">Recovery Email:</label>
-        <input type="email" id="recovery_email" name="recovery_email" required maxlength="100" value="<?php echo htmlspecialchars($_POST['recovery_email'] ?? ''); ?>">
-        <small>Used for password recovery</small>
+        <label for="recovery_email">Recovery Email (Optional):</label>
+        <input type="email" id="recovery_email" name="recovery_email" maxlength="100" value="<?php echo htmlspecialchars($_POST['recovery_email'] ?? ''); ?>">
+        <small>Optional: Used for password recovery if provided</small>
     </div>
     
     <div class="form-group">
