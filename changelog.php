@@ -8,6 +8,45 @@ include 'header.php';
 
 <div class="changelog">
     <div class="version">
+        <h2>Version 2.3.0 - August 2, 2025</h2>
+        <div class="changes">
+            <h3>User Experience Improvements</h3>
+            <ul>
+                <li>Made recovery email optional during registration for faster signup</li>
+                <li>Improved form layout and visual design across all pages</li>
+                <li>Enhanced responsive design for better mobile and tablet experience</li>
+                <li>Widened container layout for better navbar display on desktop</li>
+                <li>Made email input fields visually larger than other form fields</li>
+            </ul>
+            
+            <h3>New Features</h3>
+            <ul>
+                <li>Added community join page for Signal and Telegram groups</li>
+                <li>Integrated community links into site navigation</li>
+                <li>Added comprehensive community guidelines and contact information</li>
+                <li>Enhanced form styling consistency across registration and email creation</li>
+            </ul>
+            
+            <h3>Design & Layout Enhancements</h3>
+            <ul>
+                <li>Improved container width from 800px to 1100px for better content display</li>
+                <li>Enhanced navbar styling to display all links on single line</li>
+                <li>Added responsive breakpoints for optimal viewing on all screen sizes</li>
+                <li>Improved form input padding and sizing for better usability</li>
+                <li>Unified design language across all site pages</li>
+            </ul>
+            
+            <h3>Technical Improvements</h3>
+            <ul>
+                <li>Enhanced CSS responsiveness with multiple breakpoints</li>
+                <li>Improved form validation and user feedback</li>
+                <li>Better touch targets for mobile devices</li>
+                <li>Optimized layout scaling from mobile to ultra-wide displays</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="version">
         <h2>Version 2.2.0 - August 2, 2025</h2>
         <div class="changes">
             <h3>Bug Fixes</h3>
