@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1100px;
     margin: 0 auto;
     background-color: #FFFFFF;
     border: 2px solid #000000;
@@ -41,11 +41,12 @@ input[type="password"],
 input[type="email"],
 select {
     border: 1px solid #000000;
-    padding: 4px;
+    padding: 8px;
     font-family: "Courier New", Courier, monospace;
     font-size: 14px;
     background-color: #FFFFFF;
     box-sizing: border-box;
+    max-width: 350px;
 }
 
 /* Override for inputs inside email-input-group to avoid double borders */
@@ -115,17 +116,22 @@ th {
 .navbar {
     background-color: #000080;
     color: #FFFFFF;
-    padding: 10px;
+    padding: 12px 15px;
     margin: -20px -20px 20px -20px;
     text-align: left;
+    white-space: nowrap;
+    overflow-x: auto;
+    font-size: 14px;
 }
 
 .navbar a {
     color: #FFFFFF;
-    margin-right: 15px;
-    padding: 5px 8px;
+    margin-right: 12px;
+    padding: 6px 10px;
     display: inline-block;
     vertical-align: middle;
+    white-space: nowrap;
+    font-size: 14px;
 }
 
 .navbar a:hover {
@@ -593,7 +599,7 @@ th {
 .form-group .email-input-group {
     margin-bottom: 8px;
     width: 100%;
-    max-width: 450px;
+    max-width: 550px;
 }
 
 .form-group small {
@@ -634,13 +640,59 @@ th {
     margin-bottom: 10px;
 }
 
-/* Mobile Responsive Design */
+/* Add nav-links styling to match navbar */
+.nav-links {
+    background-color: #000080;
+    color: #FFFFFF;
+    padding: 12px 15px;
+    margin: -20px -20px 20px -20px;
+    text-align: left;
+    white-space: nowrap;
+    overflow-x: auto;
+    font-size: 14px;
+}
+
+.nav-links a {
+    color: #FFFFFF;
+    margin-right: 12px;
+    padding: 6px 10px;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #FFFF00;
+}
+
+/* Large screen optimizations */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+        padding: 25px;
+    }
+    
+    .form-group .email-input-group {
+        max-width: 600px;
+    }
+    
+    input[type="text"]:not(.email-prefix),
+    input[type="password"],
+    input[type="email"]:not(.email-prefix),
+    select:not(.domain-select) {
+        max-width: 400px;
+    }
+}
+
+/* Tablet and mobile responsive design */
 @media (max-width: 768px) {
     body {
         padding: 10px;
     }
     
     .container {
+        max-width: 100%;
         padding: 15px;
         border-width: 1px;
     }
@@ -651,8 +703,20 @@ th {
     
     .navbar, .nav-links {
         font-size: 12px;
-        line-height: 1.8;
+        line-height: 1.6;
         text-align: center;
+        white-space: normal;
+        padding: 10px;
+    }
+    
+    .navbar a, .nav-links a {
+        margin-right: 8px;
+        padding: 4px 6px;
+        font-size: 12px;
+    }
+    
+    .form-group .email-input-group {
+        max-width: 100%;
     }
     
     .form-group {
@@ -722,9 +786,27 @@ th {
     }
 }
 
+/* Medium screen adjustments */
+@media (max-width: 900px) and (min-width: 769px) {
+    .container {
+        max-width: 850px;
+        padding: 18px;
+    }
+    
+    .form-group .email-input-group {
+        max-width: 500px;
+    }
+}
+
 @media (max-width: 480px) {
     body {
         font-size: 12px;
+        padding: 5px;
+    }
+    
+    .container {
+        padding: 10px;
+        border-width: 1px;
     }
     
     h1 {
