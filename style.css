@@ -102,13 +102,14 @@ th {
 }
 
 .form-group {
-    margin: 15px 0;
+    margin-bottom: 20px;
 }
 
 .form-group label {
-    display: inline-block;
-    width: 150px;
+    display: block;
+    margin-bottom: 8px;
     font-weight: bold;
+    color: #000000;
 }
 
 .navbar {
@@ -519,16 +520,18 @@ th {
     border: 1px solid #000000;
     background-color: #FFFFFF;
     padding: 0;
-    height: 26px;
+    min-height: 36px;
+    height: auto;
     font-family: "Courier New", Courier, monospace;
     font-size: 14px;
+    border-radius: 2px;
 }
 
 .email-prefix {
     flex: 1.2;
     min-width: 0;
     border: none;
-    padding: 4px 6px;
+    padding: 10px 8px;
     margin: 0;
     background: transparent;
     font-family: "Courier New", Courier, monospace;
@@ -545,9 +548,11 @@ th {
 
 .at-symbol {
     font-weight: bold;
-    padding: 4px 4px;
+    padding: 10px 8px;
     background-color: #EEEEEE;
     border-left: 1px solid #CCCCCC;
+    display: flex;
+    align-items: center;
     border-right: 1px solid #CCCCCC;
     display: flex;
     align-items: center;
@@ -561,7 +566,7 @@ th {
     flex: 1;
     min-width: 0;
     border: none;
-    padding: 4px 6px;
+    padding: 10px 8px;
     margin: 0;
     background: transparent;
     font-family: "Courier New", Courier, monospace;
@@ -586,16 +591,17 @@ th {
 
 /* Ensure form consistency */
 .form-group .email-input-group {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
 }
 
 .form-group small {
     color: #666666;
     font-size: 12px;
     display: block;
-    margin-top: 5px;
+    margin-top: 6px;
+    font-style: italic;
 }
 
 /* Email input group hover and focus states */
