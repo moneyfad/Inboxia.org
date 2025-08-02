@@ -18,6 +18,7 @@
                 <a href="admin.php">Admin Panel</a> | 
             <?php endif; ?>
             <a href="donate.php">Support</a> | 
+            <a href="join.php">Join Community</a> | 
             <a href="changelog.php">Changelog</a> | 
             <a href="https://wm.inboxia.org/" target="_blank">Webmail</a> | 
             <a href="logout.php">Logout</a>
@@ -29,6 +30,7 @@
             <a href="register.php">Register</a> | 
             <a href="login.php">Login</a> | 
             <a href="donate.php">Support</a> | 
+            <a href="join.php">Join Community</a> | 
             <a href="changelog.php">Changelog</a> | 
             <a href="https://wm.inboxia.org/" target="_blank">Webmail</a>
         </div>

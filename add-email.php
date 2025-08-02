@@ -96,10 +96,10 @@ include 'header.php';
     
     <div class="form-group">
         <label for="email_prefix">Email Address:</label>
-        <div class="email-input">
-            <input type="text" id="email_prefix" name="email_prefix" value="<?php echo htmlspecialchars($_POST['email_prefix'] ?? ''); ?>" required>
+        <div class="email-input-group">
+            <input type="text" id="email_prefix" name="email_prefix" value="<?php echo htmlspecialchars($_POST['email_prefix'] ?? ''); ?>" required class="email-prefix">
             <span class="at-symbol">@</span>
-            <select name="domain" required>
+            <select name="domain" required class="domain-select">
                 <option value="">Select domain</option>
                 <?php foreach($available_domains as $available_domain): ?>
                     <option value="<?php echo htmlspecialchars($available_domain); ?>" <?php echo (($_POST['domain'] ?? '') === $available_domain) ? 'selected' : ''; ?>>
